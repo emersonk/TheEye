@@ -20,10 +20,7 @@ hold on
 thisBB = [165 90 315 300];
 rectangle('Position', [thisBB(1),thisBB(2),thisBB(3),thisBB(4)], 'EdgeColor','r','LineWidth',2 )
 
-%Grab the snap, and 
-pause(3);
-snap = imcrop(snapshot(cam), thisBB);
-figure, imshow(snap);
+snapshor
 
 
 % background = imopen(img,strel('disk',25));
