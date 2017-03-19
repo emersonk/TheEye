@@ -14,7 +14,7 @@ hold on
 thisBB = [165 90 315 300];
 rectangle('Position', [thisBB(1),thisBB(2),thisBB(3),thisBB(4)], 'EdgeColor','r','LineWidth',2 )
 
-fld = 'C:\Users\Emerson\Documents\COSC 445\TheEye\training_images\B';  %the folder
+fld = 'C:\Users\Emerson\Documents\COSC 445\TheEye\training_images\I';  %the folder
 nametemplate = 'image_%04d.png';  %name pattern
 imnum = 0;        %starting image number
 for K = 1 : 50    %if you want to do this 50 times
