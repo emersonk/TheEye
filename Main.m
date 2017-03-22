@@ -23,6 +23,8 @@ rectangle('Position', [thisBB(1),thisBB(2),thisBB(3),thisBB(4)], 'EdgeColor','r'
 % snap = clean(snap);
 % figure, imshow(snap);
 
+%Classify using the neural network returned by brain
+
 % while true
 %     im = snapshot(camera);       % Take a picture
 %     image(im);                   % Show the picture
