@@ -5,16 +5,13 @@ hiddenLayerSize = 10;
 net = patternnet(hiddenLayerSize);
 
 %Train network
+net.performFcn = 'sse';         
+net.trainParam.goal = 0.1;    
+net.trainParam.show = 20;      
+net.trainParam.epochs = 5000;  
+net.trainParam.mc = 0.95;      
 [net,tr] = train(net, trx, trt);
 
 outputs = net(trx);
 errors = gsubtract(trt,outputs);
 performance = perform(net,trt,outputs);
-
-
-% net = patternnet(10);
-% net = train(net,x,t);
-% view(net)
-% y = net(x);
-% perf = perform(net,t,y);
-% classes = vec2ind(y);

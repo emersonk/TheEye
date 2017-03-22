@@ -21,12 +21,12 @@ function [trainX, trainT, testX, testT, valX, valT] = brainPreprocessImg()
     for i = 1:numel(trainingImages.Files)
         [img, fileinfo] = readimage(trainingImages, i);
 
-        img = rgb2gray(img);
+        img = im2double(rgb2gray(img));
         img = imresize(img,[20 20]);
         imgv = img(:);
         trainX = horzcat(trainX,imgv);
 
-        trainT = horzcat(trainT, fileinfo.Label);
+        trainT = horzcat(trainT, processLabel(fileinfo.Label));
     end
 
     testX=[];
@@ -34,12 +34,12 @@ function [trainX, trainT, testX, testT, valX, valT] = brainPreprocessImg()
     for i = 1:numel(testImages.Files)
         [img, fileinfo] = readimage(testImages, i);
 
-        img = rgb2gray(img);
+        img = im2double(rgb2gray(img));
         img = imresize(img,[20 20]);
         imgv = img(:);
         testX = horzcat(testX,imgv);
 
-        testT = horzcat(testT, fileinfo.Label);
+        testT = horzcat(testT, processLabel(fileinfo.Label));
     end
 
     valX=[];
@@ -47,12 +47,12 @@ function [trainX, trainT, testX, testT, valX, valT] = brainPreprocessImg()
     for i = 1:numel(validationImages.Files)
         [img, fileinfo] = readimage(validationImages, i);
 
-        img = rgb2gray(img);
+        img = im2double(rgb2gray(img));
         img = imresize(img,[20 20]);
         imgv = img(:);
         valX = horzcat(valX,imgv);
 
-        valT = horzcat(valT, fileinfo.Label);
+        valT = horzcat(valT, processLabel(fileinfo.Label));
     end
 
 end

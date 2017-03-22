@@ -1,0 +1,13 @@
+%function labelV = processLabel(lbl)
+    labelV = zeros(24,1);
+    lbl = 'B';
+    if lbl == 'A'
+        labelV(1,1) = 1;
+    elseif lbl == 'B'
+        labelV(2,1) = 1;
+    elseif lbl == 'B'
+        labelV(2,1) = 1;
+        
+        
+    end
+%end
