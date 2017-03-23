@@ -10,17 +10,17 @@ thisBB = [165 90 315 300];
 
 for i = 1:500
     im = snapshot(cam);       % Take a picture
-    im = imcrop(im, thisBB);
+    im = imcrop(im, 
     img = clean(im);
     imgv = img(:);
     answ = brain(imgv);
     label = processClassification(answ);
    % imshow(im);
+    subplot(1,2,1), imshow(im);
+    subplot(1,2,2), imshow(img);
     hold on
-        subplot(1,2,1), imshow(im);
-        subplot(1,2,2), imshow(img);
         title(label);
-%         rectangle('Position', [thisBB(1),thisBB(2),thisBB(3),thisBB(4)], 'EdgeColor','r','LineWidth',2 )
+        rectangle('Position', [thisBB(1),thisBB(2),thisBB(3),thisBB(4)], 'EdgeColor','r','LineWidth',2 )
     hold off
 end
 clear cam;

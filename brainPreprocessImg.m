@@ -14,15 +14,13 @@ function [trainX, trainT, testX, testT, valX, valT] = brainPreprocessImg()
     %convert each image to a vector
     %Concatonate vector to matrix
     %Store label
-    
-    
     trainX=[];
     trainT=[];
     for i = 1:numel(trainingImages.Files)
         [img, fileinfo] = readimage(trainingImages, i);
 
         img = im2double(rgb2gray(img));
-        img = imresize(img,[20 20]);
+        img = imresize(img,[30 30]);
         imgv = img(:);
         trainX = horzcat(trainX,imgv);
 
@@ -35,7 +33,7 @@ function [trainX, trainT, testX, testT, valX, valT] = brainPreprocessImg()
         [img, fileinfo] = readimage(testImages, i);
 
         img = im2double(rgb2gray(img));
-        img = imresize(img,[20 20]);
+        img = imresize(img,[30 30]);
         imgv = img(:);
         testX = horzcat(testX,imgv);
 
@@ -48,7 +46,7 @@ function [trainX, trainT, testX, testT, valX, valT] = brainPreprocessImg()
         [img, fileinfo] = readimage(validationImages, i);
 
         img = im2double(rgb2gray(img));
-        img = imresize(img,[20 20]);
+        img = imresize(img,[30 30]);
         imgv = img(:);
         valX = horzcat(valX,imgv);
 
