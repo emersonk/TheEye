@@ -18,12 +18,9 @@ function [trainX, trainT, testX, testT, valX, valT] = preprocessTrainImg()
     trainT=[];
     for i = 1:numel(trainingImages.Files)
         [img, fileinfo] = readimage(trainingImages, i);
-
-        img = im2double(rgb2gray(img));
-        img = imresize(img,[10 10]);
+        img = clean(img);
         imgv = img(:);
         trainX = horzcat(trainX,imgv);
-
         trainT = horzcat(trainT, processLabel(fileinfo.Label));
     end
 
@@ -33,7 +30,7 @@ function [trainX, trainT, testX, testT, valX, valT] = preprocessTrainImg()
         [img, fileinfo] = readimage(testImages, i);
 
         img = im2double(rgb2gray(img));
-        img = imresize(img,[10 10]);
+        img = imresize(img,[20 20]);
         imgv = img(:);
         testX = horzcat(testX,imgv);
 
@@ -46,7 +43,7 @@ function [trainX, trainT, testX, testT, valX, valT] = preprocessTrainImg()
         [img, fileinfo] = readimage(validationImages, i);
 
         img = im2double(rgb2gray(img));
-        img = imresize(img,[30 30]);
+        img = imresize(img,[20 20]);
         imgv = img(:);
         valX = horzcat(valX,imgv);
 

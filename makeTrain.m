@@ -13,19 +13,18 @@ preview(cam, hImage);
 hold on
 thisBB = [165 90 315 300];
 rectangle('Position', [thisBB(1),thisBB(2),thisBB(3),thisBB(4)], 'EdgeColor','r','LineWidth',2 )
-
-fld = 'C:\Users\Emerson\Documents\COSC 445\TheEye\training_images\M';  %the folder
+hold off
+fld = 'C:\Users\Emerson\Documents\COSC 445\TheEye\training_images\Y';  %the folder
 nametemplate = 'image_%04d.png';  %name pattern
 imnum = 0;        %starting image number
 for K = 1 : 100    %if you want to do this 100 times
    snap = imcrop(snapshot(cam), thisBB);
-   snap = clean(snap);
-   snap = imresize(snap,[227 227]);
+%    snap1 = clean(snap);
+   %snap = imresize(snap,[227 227]);
    %Convert back to 3 channels
-   snap = 255 * repmat(uint8(snap), 1, 1, 3);
+   %snap = 255 * repmat(uint8(snap), 1, 1, 3);
    imnum = imnum + 1;
    thisfile = sprintf(nametemplate, imnum);  %create filename
    fullname = fullfile(fld, thisfile);  %folder and all
-   imwrite( snap, fullname);
+   imwrite(snap, fullname);
 end
-clear cam;

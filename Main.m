@@ -1,8 +1,13 @@
 % Main Class
 close all; clear;
 
-% Construct network
-brain = makeBrain();
+% Construct new network
+% brain = makeBrain();
+
+% Use previously saved brain
+load net;
+brain = net;
+
 % Create webcam object cam
 cam = webcam;
 %Bounding box
@@ -15,8 +20,7 @@ for i = 1:500
         imgv = img(:);
         answ = brain(imgv);
         label = processClassification(answ);
-%         disp(answ);
-   % imshow(im);
+
    hold on
         subplot(1,2,1), imshow(im);
         subplot(1,2,2), imshow(img);
