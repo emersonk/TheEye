@@ -9,14 +9,15 @@ cam = webcam;
 thisBB = [165 90 315 300];
 
 for i = 1:500
-    im = snapshot(cam);       % Take a picture
-    im = imcrop(im, thisBB);
-    img = clean(im);
-    imgv = img(:);
-    answ = brain(imgv);
-    label = processClassification(answ);
+        im = snapshot(cam);       % Take a picture, it'll last longer
+        im = imcrop(im, thisBB);
+        img = clean(im);
+        imgv = img(:);
+        answ = brain(imgv);
+        label = processClassification(answ);
+%         disp(answ);
    % imshow(im);
-    hold on
+   hold on
         subplot(1,2,1), imshow(im);
         subplot(1,2,2), imshow(img);
         title(label);
