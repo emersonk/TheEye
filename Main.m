@@ -1,17 +1,17 @@
 % Main Class
 close all; clear;
 
-% Construct new network
-% brain = makeBrain();
-
-% Use previously saved brain
-load net;
-brain = net;
-
 % Create webcam object cam
 cam = webcam;
 %Bounding box
 thisBB = [165 90 315 300];
+
+% Construct new network
+% brain = makeBrain();
+
+% Use previously saved brain
+load deepnet;
+brain = deepnet;
 
 for i = 1:500
         im = snapshot(cam);       % Take a picture, it'll last longer

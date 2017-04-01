@@ -1,4 +1,4 @@
-function net = makeBrain();
+function net = makeBrain()
     [trx,trt,tsx,tst,valx,valt] = preprocessTrainImg; 
 
     %Create network:
@@ -14,16 +14,8 @@ function net = makeBrain();
 %     net.trainParam.mc = 0.95;      
 %     net.trainFcn = 'trainrp';   
     [net,tr] = train(net, trx, trt);
-% 
-    save net;
-    outputs = net(trx);
-    
-%     [a,b]=max(sim(net,tst));
-%     disp(b);
 
- 
-    errors = gsubtract(trt,outputs);
-    performance = perform(net,trt,outputs);
-    %figure, plotconfusion(trt,outputs)
+    %If we decide to save the net (run in command window?)
+    save net; 
 
 end

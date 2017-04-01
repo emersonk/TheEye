@@ -19,10 +19,6 @@ nametemplate = 'image_%04d.png';  %name pattern
 imnum = 0;        %starting image number
 for K = 1 : 100    %if you want to do this 100 times
    snap = imcrop(snapshot(cam), thisBB);
-%    snap1 = clean(snap);
-   %snap = imresize(snap,[227 227]);
-   %Convert back to 3 channels
-   %snap = 255 * repmat(uint8(snap), 1, 1, 3);
    imnum = imnum + 1;
    thisfile = sprintf(nametemplate, imnum);  %create filename
    fullname = fullfile(fld, thisfile);  %folder and all
