@@ -3,16 +3,16 @@ close all; clear;
 
 % Create webcam object cam
 cam = webcam;
-%Bounding box
-thisBB = [165 90 315 300];
 
-% Construct new network
-% brain = makeBrain();
+% Bounding box
+thisBB = [165 90 315 300];
+ 
+%To construct a new network, step through encodeFeatureVector scrip
 
 % Use previously saved brain
-load deepnet;
+load deepnet.mat;
 brain = deepnet;
-
+ 
 for i = 1:500
         im = snapshot(cam);       % Take a picture, it'll last longer
         im = imcrop(im, thisBB);
@@ -25,7 +25,7 @@ for i = 1:500
         subplot(1,2,1), imshow(im);
         subplot(1,2,2), imshow(img);
         title(label);
-%         rectangle('Position', [thisBB(1),thisBB(2),thisBB(3),thisBB(4)], 'EdgeColor','r','LineWidth',2 )
+% %         rectangle('Position', [thisBB(1),thisBB(2),thisBB(3),thisBB(4)], 'EdgeColor','r','LineWidth',2 )
     hold off
 end
 clear cam;

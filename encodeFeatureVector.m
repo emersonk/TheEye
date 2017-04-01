@@ -61,10 +61,21 @@ view(autoenc1)
 view(autoenc2)
 view(softnet)
 deepnet = stack(autoenc1,autoenc2,softnet);
+%% Now train the network
+% Turn the training images into vectors and put them in a matrix
+% Get the number of pixels in each image
+imageWidth = 28;
+imageHeight = 28;
+inputSize = imageWidth*imageHeight;
 
+xTrain = zeros(inputSize,numel(xTrainImages));
+for i = 1:numel(xTrainImages)
+    xTrain(:,i) = xTrainImages{i}(:);
+end
+
+% Perform fine tuning
+deepnet = train(deepnet,xTrain,tTrain);
 save deepnet;
-
-
 %% Quick lil plot and test
 % Get the number of pixels in each image
 imageWidth = 28;
