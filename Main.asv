@@ -14,7 +14,7 @@ load deepnet.mat;
 brain = deepnet;
 
 answ = zeros(24,1);
-label = '';
+label = 'Waiting';
 for i = 1:500
    im = snapshot(cam);       % Take a picture, it'll last longer
    im = imcrop(im, thisBB);
@@ -25,10 +25,9 @@ for i = 1:500
    answ = answ + brain(imgv);
    div = mod(i,25);
    l = processClassification(answ);
-   disp(l);
-   
+   disp(
    if div == 0
-    label = strcat(label, l);
+    label = l;
     answ = zeros(24,1);
    end 
    
