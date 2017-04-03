@@ -22,15 +22,17 @@ for i = 1:500
    
    %Should convert this to vector in the same way as encodeFeatureVector
    imgv = img(:);
-   answ = answ + brain(imgv);
-   div = mod(i,25);
-   l = processClassification(answ);
-   disp(l);
+%    answ = answ + brain(imgv);
+
+   answ = brain(imgv);
+%    div = mod(i,25);
+   label = processClassification(answ);
+%    disp(l);
    
-   if div == 0
-    label = strcat(label, l);
-    answ = zeros(24,1);
-   end 
+%    if div == 0
+%     label = strcat(label, l);
+%     answ = zeros(24,1);
+%    end 
    
    hold on
         subplot(1,2,1), imshow(im);
