@@ -15,12 +15,11 @@ brain = deepnet;
 
 answ = zeros(24,1);
 label = '';
-for i = 1:500
+for i = 1:1000
    im = snapshot(cam);       % Take a picture, it'll last longer
    im = imcrop(im, thisBB);
    img = clean(im);
-   
-   %Should convert this to vector in the same way as encodeFeatureVector
+  
    imgv = img(:);
 %    answ = answ + brain(imgv);
 
